@@ -1,0 +1,41 @@
+{{!< default}}
+
+<div class="page-ajax-holder">
+
+  <nav class="subcategories">
+  </nav>
+
+  <main class="post-ajax-holder">
+
+    {{#author}}
+      <div class="ui items">
+        <div class="item">
+          {{#if image}}
+            <div class="ui small circular image page-links">
+              <a href="{{url}}"><img src="{{image}}"></a>
+            </div>
+          {{/if}}
+          <div class="content">
+            <h2>{{name}}</h2>
+            <div class="meta">
+              {{#if location}}<i class="marker icon"></i><span>{{location}}</span>{{/if}}
+              {{#if website}}<i class="linkify icon"></i><span><a href="{{website}}">{{website}}</a></span>{{/if}}
+            </div>
+            {{#if bio}}
+              <div class="description">
+                <p>{{bio}}</p>
+              </div>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+    {{/author}}
+    <div class="ui divider" style="margin-bottom:3rem"></div>
+
+    <div class="infinite-scroll-holder">
+      {{> "loop"}}
+    </div>
+
+  </main>
+
+</div>

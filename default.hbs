@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		{{! document settings }}
+	  <meta charset="utf-8">
+	  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	  {{! page meta }}
+	  <title>{{meta_title}}</title>
+	  <meta name="description" content="{{meta_description}}">
+
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <link rel="shortcut icon" href="{{asset "favicon.ico"}}">
+
+	  {{! stylesheets/scripts }}
+	  <link href="https://fonts.googleapis.com/css?family=Patua+One|Open+Sans:400,300,600" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.6/semantic.min.css">
+    <link rel="stylesheet" href="{{asset "css/nprogress.css"}}">
+    <link rel="stylesheet" href="{{asset "css/src.css"}}">
+    <script type="text/javascript">
+      if (typeof jQuery == 'undefined') {
+        document.write('<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></'+'script>');
+      }
+    </script>
+ 	  <script src="{{asset "js/jquery.appear.min.js"}}"></script>
+	  <script src="{{asset "js/nprogress.min.js"}}"></script>
+	  <script src="{{asset "js/jquery.ghostHunter.min.js"}}"></script>
+	  <script src="{{asset "js/fastclick.min.js"}}"></script>
+	  <script src="{{asset "js/src.js"}}"></script>
+
+	  {{ghost_head}}
+	</head>
+	<body class="{{body_class}}">
+
+		<div class="canvas-wrap">
+			
+			<nav class="off-canvas">
+				{{navigation}}
+			</nav>
+
+			<div class="on-canvas">
+
+				<nav class="ui menu navbar">
+					<div class="ui container">
+						<a class="item navbar-link" href="#" role="button" id="off-canvas-toggle"><i class="sidebar icon"></i></a>
+						<a class="item navbar-link navbar-logo" href="/">{{@blog.title}}</a>
+					  <div class="right menu">
+						  <form class="search-form">
+						    <div class="ui search">
+						      <div class="ui icon input">
+						        <input class="prompt" id="search-field" type="text">
+						        <i class="search icon"></i>
+						      </div>
+						    </div>
+						  </form>
+					  </div>
+					</div>
+				</nav>
+
+			  {{#if @blog.logo}}
+			  	<header class="ui container header-image" style="background-image:url({{@blog.logo}})">
+			  		<div class="header-content">	
+			  			<h1 class="header-title">{{@blog.title}}</h1>
+			  			<h2 class="header-subtitle">{{@blog.description}}</h2>
+		  			</div>
+			  	</header>
+			  {{/if}}
+
+			  <div class="yield ui container">
+			  	<div class="navigation-column">
+			  		{{navigation}}
+				  </div>
+				  <div class="content-column">
+			    	{{{body}}}
+			    </div>
+		    </div>
+
+		  </div>{{! end on-canvas }}
+
+	  </div>{{! end canvas-wrap }}
+
+	  <div class="flash"></div>{{! flash messages }}
+
+	  {{ghost_foot}}
+	</body>
+</html>

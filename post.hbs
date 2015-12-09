@@ -1,0 +1,58 @@
+{{!< default}}
+
+<div class="page-ajax-holder">
+  
+	<nav class="subcategories">
+	</nav>
+
+	<main class="post-ajax-holder">
+	  
+	  {{#post}}
+	    
+	    <article class="{{post_class}}">
+	    	<header class="post-header">
+		      <h1 class="ui dividing header">
+		      	{{title}}
+			      <div class="sub header">{{date}}</div>
+		      </h1>
+		      <p class="page-links"><i class="tags icon"></i><span>{{tags}}</span></p>
+		    </header>
+		    {{#if image}}
+		      <img src="{{image}}" class="ui fluid rounded image post-image">
+		    {{/if}}
+	      <section>
+	        {{content}}
+	      </section>
+	    </article>
+
+			{{#author}}
+				<div class="author-footer">
+					<div class="ui items">
+						<div class="item">
+							{{#if image}}
+								<div class="ui tiny circular image page-links">
+									<a href="{{url}}"><img src="{{image}}"></a>
+								</div>
+							{{/if}}
+						  <div class="content">
+						    <div class="header">{{name}}</div>
+						    <div class="meta">
+						    	{{#if location}}<i class="marker icon"></i><span>{{location}}</span>{{/if}}
+						    	{{#if website}}<i class="linkify icon"></i><span><a href="{{website}}">{{website}}</a></span>{{/if}}
+						    </div>
+						    {{#if bio}}
+							    <div class="description">
+							      <p>{{bio}}</p>
+							    </div>
+							  {{/if}}
+						  </div>
+						</div>
+					</div>
+				</div>
+			{{/author}}
+
+		{{/post}}
+	
+	</main>
+
+</div>

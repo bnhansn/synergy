@@ -1,0 +1,23 @@
+<div class="ui grid">
+  {{#foreach posts}}
+    <div class="sixteen wide tablet eight wide computer column">
+      <article class="{{post_class}} animated ui fluid card" data-fx="fadeInUp">
+        {{#if image}}
+          <a href="{{url}}" class="image ajax-post-link">
+            <img src="{{image}}">
+          </a>
+        {{/if}}
+        <div class="content">
+          <h2><a href="{{url}}" class="ajax-post-link">{{{title}}}</a></h2>
+          <div class="meta page-links">{{tags}}</div>
+          <div class="description">{{excerpt words="40"}}...</div>
+        </div>
+        <div class="extra content right aligned">
+          {{date}}
+        </div>
+      </article>
+    </div>
+  {{/foreach}}
+</div>
+
+{{pagination}}

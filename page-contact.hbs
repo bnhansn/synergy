@@ -1,0 +1,68 @@
+{{!< default}}
+
+<div class="page-ajax-holder">
+  
+  <nav class="subcategories">
+  </nav>
+
+	<main class="post-ajax-holder">
+
+	  {{#post}}
+	    <article class="{{post_class}}">
+	      <h1>{{title}}</h1>
+	      <section>
+	        {{content}}
+	      </section>
+	    </article>
+	  {{/post}}
+
+	  <form action="//formspree.io/bnhansn@gmail.com" method="post" class="ui form contact-form">
+	  	<input type="hidden" name="_subject" value="Contact Form">
+	  	<input type="text" name="_gotcha" style="display:none">
+	  	<input type="hidden" name="_next" value="//localhost:2368/contact">
+	  	
+	  	<div class="fields">
+		  	<div class="field">
+		  		<input type="text" name="name" required="true" placeholder="Name">
+		  	</div>
+		  	
+		  	<div class="field">
+		  		<input type="email" name="_replyto" required="true" placeholder="Email">
+		  	</div>
+		  </div>
+
+		  <div class="fields">
+		  	<div class="sixteen wide field">
+		  		<textarea name="message" required="true" placeholder="Message"></textarea>
+		  	</div>
+		  </div>
+	  	
+	  	<button type="submit" class="ui button submit-button">Send</button>
+
+	  </form>
+
+	  <script>
+	  	$(".contact-form").submit(function(e) {
+
+	  		$(".submit-button").addClass("loading");
+
+	  		$.ajax({
+	  	    url: "//formspree.io/bnhansn@gmail.com",
+	  	    method: "post",
+	  			data: $(".contact-form").serialize(),
+	  	    dataType: "json",
+	  			success: function(data) {
+	  				$(".contact-form").trigger("reset");
+	  				$(".submit-button").removeClass("loading");
+	  				$(".flash").text("Thanks, we\'ll be in touch!");
+	  				$(".flash").fadeIn(300).delay(5000).fadeOut(1000);
+	  			}
+	  		});
+
+	  		return false
+	  	});
+	  </script>
+
+	</main>
+
+</div>
