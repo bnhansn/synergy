@@ -30,8 +30,8 @@
 					<div class="ui items">
 						<div class="item">
 							{{#if image}}
-								<div class="ui tiny circular image page-links">
-									<a href="{{url}}"><img src="{{image}}"></a>
+								<div class="ui image page-links">
+									<a href="{{url}}"><img src="{{image}}" class="author-image"></a>
 								</div>
 							{{/if}}
 						  <div class="content">
@@ -41,15 +41,30 @@
 						    	{{#if website}}<i class="linkify icon"></i><span><a href="{{website}}">{{website}}</a></span>{{/if}}
 						    </div>
 						    {{#if bio}}
-							    <div class="description">
-							      <p>{{bio}}</p>
-							    </div>
+						    	<div class="bio">
+						      	<p>{{bio}}</p>
+						      </div>
 							  {{/if}}
 						  </div>
 						</div>
 					</div>
 				</div>
 			{{/author}}
+
+			<div id="disqus_thread"></div>
+			<script type="text/javascript">
+		    var disqus_shortname = 'synergy-ghost'; // required: replace example with your forum shortname
+		    var disqus_identifier = '{{post.id}}';
+		 
+		    /* * * DON'T EDIT BELOW THIS LINE * * */
+		    (function() {
+	        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+		    })();
+			</script>
+			<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+			<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 		{{/post}}
 	

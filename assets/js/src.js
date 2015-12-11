@@ -9,7 +9,7 @@ initAppear = function() {
 
 initSidenavLinks = function() {
 	$('.navigation a').click(function() {
-		if ($('body').hasClass('body--nav-open')) { // animation causes flicker if class not present
+		if ($('body').hasClass('body--nav-open')) {
 			$('body').removeClass('body--nav-open').addClass('body--nav-closed');
 		}
 	  var url = $(this).attr('href');

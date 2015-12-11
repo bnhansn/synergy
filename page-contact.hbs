@@ -16,12 +16,13 @@
 	    </article>
 	  {{/post}}
 
+	  {{! replace your@email.com with your actual email }}
 	  <form action="//formspree.io/bnhansn@gmail.com" method="post" class="ui form contact-form">
-	  	<input type="hidden" name="_subject" value="Contact Form">
+	  	<input type="hidden" name="_subject" value="Synergy Theme Contact Form"> {{! you can customize the 'Contact Form' subject line }}
 	  	<input type="text" name="_gotcha" style="display:none">
-	  	<input type="hidden" name="_next" value="//localhost:2368/contact">
+	  	<input type="hidden" name="_next" value="//synergy-theme.ghost.io"> {{! replace yourdomain.com with your website's domain }}
 	  	
-	  	<div class="fields">
+	  	<div class="two fields">
 		  	<div class="field">
 		  		<input type="text" name="name" required="true" placeholder="Name">
 		  	</div>
@@ -47,15 +48,14 @@
 	  		$(".submit-button").addClass("loading");
 
 	  		$.ajax({
-	  	    url: "//formspree.io/bnhansn@gmail.com",
+	  	    url: "//formspree.io/bnhansn@gmail.com", // replace your@email.com with your actual email
 	  	    method: "post",
 	  			data: $(".contact-form").serialize(),
 	  	    dataType: "json",
 	  			success: function(data) {
 	  				$(".contact-form").trigger("reset");
 	  				$(".submit-button").removeClass("loading");
-	  				$(".flash").text("Thanks, we\'ll be in touch!");
-	  				$(".flash").fadeIn(300).delay(5000).fadeOut(1000);
+	  				$("<div class='flash'>Thanks, we\'ll be in touch!</div>").appendTo('body').hide().fadeIn(300).delay(5000).fadeOut(1000);
 	  			}
 	  		});
 

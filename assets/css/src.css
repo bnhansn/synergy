@@ -8,7 +8,7 @@ body, h1, h2, h3, h4, h5, h6, .ui.header, .ui.button, input {
 
 body {
 	background: rgb(248,248,248);
-	color: rgb(60,70,80);
+	color: #546673;
 }
 
 a { color: #167ac6 }
@@ -86,9 +86,7 @@ code {
 	animation: bg-color-in 250ms linear;
 }
 
-.body--nav-open {
-	overflow: hidden;
-}
+.body--nav-open { overflow: hidden }
 
 .off-canvas {
 	position: absolute;
@@ -98,9 +96,7 @@ code {
 	transform: translate3d(-100%, 0, 0);
 }
 
-.on-canvas {
-	min-height: 100%;
-}
+.on-canvas { min-height: 100% }
 
 #off-canvas-toggle { display: none }
 
@@ -123,9 +119,7 @@ code {
 	display: flex !important;
 }
 
-.post-ajax-holder {
-	padding: 30px;
-}
+.post-ajax-holder { padding: 30px }
 
 /*	==================================================
 		Navigation
@@ -155,15 +149,15 @@ code {
 	letter-spacing: 2px;
 }
 
+#off-canvas-toggle i { margin: 0 }
+
 .navbar-link.item:before { display: none !important }
 
 @media only screen and (max-width: 500px) {
 	.search-form { display: none }
 }
 
-.navigation-column {
-	border-right: 2px solid rgb(215,219,233);
-}
+.navigation-column { border-right: 2px solid rgb(215,219,233) }
 
 .navigation a {
 	display: block;
@@ -179,9 +173,7 @@ code {
 	background: rgb(252,252,252);
 }
 
-.navigation a:not(.active):hover {
-	background: rgb(253,253,253);
-}
+.navigation a:not(.active):hover { background: rgb(253,253,253) }
 
 .subcategories {
 	background: rgba(0,0,0,.04);
@@ -197,9 +189,7 @@ code {
 	padding: 25px 15px;
 }
 
-.subcategories a:not(.active):hover {
-	box-shadow: 0 -2px #a1a1b3 inset;
-}
+.subcategories a:not(.active):hover { box-shadow: 0 -2px #a1a1b3 inset }
 
 .subcategories a.active {
 	box-shadow: 0 -2px #2b71b1 inset;
@@ -250,15 +240,50 @@ code {
 
 .post-image { margin: 3rem 0rem }
 
+#disqus_thread { margin-top: 5rem }
+
 /*	==================================================
 		Authors
 		==================================================	*/
+
+.author-header {
+	background: rgb(250,250,250);
+  border-bottom: 4px solid #2b71b1;
+  padding: 20px;
+  margin-bottom: 4rem;
+}
 
 .author-footer {
 	padding: 20px;
 	background: rgb(250,250,250);
 	border-left: 4px solid #2b71b1;
+	margin-top: 4rem;
+}
+
+.author-header .author-image {
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+}
+
+.author-footer .author-image {
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+}
+
+.bio {
 	margin-top: 3rem;
+	position: relative;
+}
+
+.bio::before {
+	position: absolute;
+	top: -1rem;
+	left: 0;
+	width: 25px;
+	border-top: 2px solid rgb(200,200,200);
+	content: '';
 }
 
 /*	==================================================
@@ -272,13 +297,14 @@ code {
 
 .meta.page-links a { margin: 0px !important }
 
-.header-image {
+.blog-header {
 	position: relative;
 	height: 250px;
+	background-color: rgb(20,20,20);
 	background-attachment: fixed;
 }
 
-.header-image::after {
+.blog-header::after {
 	content: '';
 	position: absolute;
 	width: 100%;
@@ -315,23 +341,22 @@ code {
 
 .contact-form { margin: 2rem 0rem }
 
-#flash {
+.flash {
 	width: 250px;
 	padding: 15px;
-	background: #5ba4e5;
-	color: white;
+	background: rgba(250,250,250,.7);
+	border: 1px solid rgb(225,225,225);
+	color: rgb(50,50,50);
 	position: fixed;
 	bottom: 15px;
 	left: 15px;
 	z-index: 1000;
 	border-radius: 3px;
 	cursor: pointer;
-	display: none;
+	box-shadow: 1px 1px 3px rgba(0,0,0,.2);
 }
 
-#flash:hover {
-	box-shadow: 2px 2px 5px rgba(0,0,0,.2);
-}
+.flash:hover { box-shadow: 2px 2px 5px rgba(0,0,0,.2) }
 
 .logo-holder {
 	position: relative;
@@ -354,3 +379,5 @@ code {
 	line-height: 1.5;
 	border-radius: 5rem;
 }
+
+.description { color: #546673 !important }

@@ -15,7 +15,7 @@
 	  <link href="https://fonts.googleapis.com/css?family=Patua+One|Open+Sans:400,300,600" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.6/semantic.min.css">
     <link rel="stylesheet" href="{{asset "css/nprogress.css"}}">
-    <link rel="stylesheet" href="{{asset "css/src.css"}}">
+    <link rel="stylesheet" href="{{asset "css/theme.min.css"}}">
     <script type="text/javascript">
       if (typeof jQuery == 'undefined') {
         document.write('<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></'+'script>');
@@ -25,7 +25,7 @@
 	  <script src="{{asset "js/nprogress.min.js"}}"></script>
 	  <script src="{{asset "js/jquery.ghostHunter.min.js"}}"></script>
 	  <script src="{{asset "js/fastclick.min.js"}}"></script>
-	  <script src="{{asset "js/src.js"}}"></script>
+	  <script src="{{asset "js/theme.min.js"}}"></script>
 
 	  {{ghost_head}}
 	</head>
@@ -33,9 +33,9 @@
 
 		<div class="canvas-wrap">
 			
-			<nav class="off-canvas">
+			<div class="off-canvas">
 				{{navigation}}
-			</nav>
+			</div>
 
 			<div class="on-canvas">
 
@@ -56,14 +56,12 @@
 					</div>
 				</nav>
 
-			  {{#if @blog.logo}}
-			  	<header class="ui container header-image" style="background-image:url({{@blog.logo}})">
-			  		<div class="header-content">	
-			  			<h1 class="header-title">{{@blog.title}}</h1>
-			  			<h2 class="header-subtitle">{{@blog.description}}</h2>
-		  			</div>
-			  	</header>
-			  {{/if}}
+		  	<header class="ui container blog-header" style="{{#if @blog.logo}}background-image:url({{@blog.logo}}){{/if}}">
+		  		<div class="header-content">
+		  			<h1 class="header-title">{{@blog.title}}</h1>
+		  			<h2 class="header-subtitle">{{@blog.description}}</h2>
+	  			</div>
+		  	</header>
 
 			  <div class="yield ui container">
 			  	<div class="navigation-column">
@@ -77,8 +75,6 @@
 		  </div>{{! end on-canvas }}
 
 	  </div>{{! end canvas-wrap }}
-
-	  <div class="flash"></div>{{! flash messages }}
 
 	  {{ghost_foot}}
 	</body>
