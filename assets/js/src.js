@@ -18,19 +18,21 @@ initSidenavLinks = function() {
 	  $(this).addClass('active');
 	  $.ajax({
 	    url: url,
-	    type: 'GET',
-	    success: function(data) {
-	      var newPageContent = $(data).find('.page-ajax-holder').html();
-	      $('.page-ajax-holder').html(newPageContent);
-	      history.pushState({}, '', url);
-	      initSubcategoryLinks();
-	      initPostLinks();
-	      initPageLinks();
-	      initInfiniteScroll();
-	      initAppear();
-	      NProgress.done();
-	    }
+	    type: 'GET'
+	  }).done(function(data) {
+      var newPageContent = $(data).find('.page-ajax-holder').html();
+      $('.page-ajax-holder').html(newPageContent);
+      history.pushState({}, '', url);
+      initSubcategoryLinks();
+      initPostLinks();
+      initPageLinks();
+      initInfiniteScroll();
+      initAppear();
+      NProgress.done();
+	  }).fail(function() {
+	  	ajaxError(url);
 	  });
+
 	  return false;
 	});
 }
@@ -43,16 +45,17 @@ initSubcategoryLinks = function() {
 	  $(this).addClass('active');
 	  $.ajax({
 	    url: url,
-	    type: 'GET',
-	    success: function(data) {
-	      var newPageContent = $(data).find('.post-ajax-holder').html();
-	      $('.post-ajax-holder').html(newPageContent);
-	      history.pushState({}, '', url);
-	      initPostLinks();
-	      initPageLinks();
-	      initAppear();
-	      NProgress.done();
-	    }
+	    type: 'GET'
+	  }).done(function(data) {
+      var newPageContent = $(data).find('.post-ajax-holder').html();
+      $('.post-ajax-holder').html(newPageContent);
+      history.pushState({}, '', url);
+      initPostLinks();
+      initPageLinks();
+      initAppear();
+      NProgress.done();
+	  }).fail(function() {
+	  	ajaxError(url);
 	  });
 	  return false;
 	});
@@ -64,18 +67,19 @@ initPageLinks = function() {
 	  NProgress.start();
 	  $.ajax({
 	    url: url,
-	    type: 'GET',
-	    success: function(data) {
-	      var newPageContent = $(data).find('.page-ajax-holder').html();
-	      $('.page-ajax-holder').html(newPageContent);
-	      history.pushState({}, '', url);
-	      initPostLinks();
-	      initSubcategoryLinks();
-	      initPageLinks();
-	      initAppear();
-	      NProgress.done();
-	    }
-	  });
+	    type: 'GET'
+	  }).done(function(data) {
+      var newPageContent = $(data).find('.page-ajax-holder').html();
+      $('.page-ajax-holder').html(newPageContent);
+      history.pushState({}, '', url);
+      initPostLinks();
+      initSubcategoryLinks();
+      initPageLinks();
+      initAppear();
+      NProgress.done();
+	  }).fail(function() {
+	  	ajaxError(url);
+	  })
 	  return false;
 	});
 }
@@ -86,14 +90,15 @@ initPostLinks = function() {
 	  NProgress.start();
 	  $.ajax({
 	    url: url,
-	    type: 'GET',
-	    success: function(data) {
-      	var newPostContent = $(data).find('.post-ajax-holder').html();
-      	$('.post-ajax-holder').html(newPostContent);
-	      history.pushState({}, '', url);
-	      initPageLinks();
-	      NProgress.done();
-	    }
+	    type: 'GET'
+	  }).done(function(data) {
+    	var newPostContent = $(data).find('.post-ajax-holder').html();
+    	$('.post-ajax-holder').html(newPostContent);
+      history.pushState({}, '', url);
+      initPageLinks();
+      NProgress.done();	  	
+	  }).fail(function() {
+	  	ajaxError(url);
 	  });
 	  return false;
 	});
@@ -134,6 +139,12 @@ initSearch = function() {
 	  	initPostLinks();
 		}
 	});
+}
+
+ajaxError = function(url) {
+	history.pushState({}, '', url);
+	$('.page-ajax-holder').html("<nav class='subcategories'></nav><main class='post-ajax-holder'><h1>Page Not Found</h1><p>If you are the site admin you may need to create a page for this link from the ghost admin panel.</p></main></div>");
+	NProgress.done();
 }
 
 $(document).ready(function() {
