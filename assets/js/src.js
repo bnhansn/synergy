@@ -76,6 +76,7 @@ initPageLinks = function() {
       initSubcategoryLinks();
       initPageLinks();
       initAppear();
+      $('html, body').animate({ scrollTop: 200 }, 400);
       NProgress.done();
 	  }).fail(function() {
 	  	ajaxError(url);
@@ -96,7 +97,8 @@ initPostLinks = function() {
     	$('.post-ajax-holder').html(newPostContent);
       history.pushState({}, '', url);
       initPageLinks();
-      NProgress.done();	  	
+      $('html, body').animate({ scrollTop: 200 }, 400);
+      NProgress.done();
 	  }).fail(function() {
 	  	ajaxError(url);
 	  });
@@ -109,7 +111,7 @@ initInfiniteScroll = function() {
 		$(window).scroll(function() {
 		  var nextPage = $('.pagination .older-posts').attr('href');
 		  if (nextPage && ($(window).scrollTop() > $(document).height() - $(window).height() - 150)) {
-		    $('.pagination').remove();
+		    $('.pagination').html("<div class='loader-holder'><div class='ui active loader'></div></div>");
 		    NProgress.start();
 		    $.ajax({
 		      url: nextPage,
@@ -120,6 +122,7 @@ initInfiniteScroll = function() {
 		        initAppear();
 		        initPostLinks();
 		        initPageLinks();
+		        $('.infinite-scroll-holder').find('.pagination:first').remove();
 		        NProgress.done();
 		      }
 		    });
@@ -167,3 +170,5 @@ $(document).on('click', '#off-canvas-toggle', function() {
 $(function() {
 	FastClick.attach(document.body);
 });
+
+

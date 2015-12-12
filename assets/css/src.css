@@ -121,6 +121,48 @@ code {
 
 .post-ajax-holder { padding: 30px }
 
+.blog-header {
+	position: relative;
+	height: 250px;
+	background-color: rgb(20,20,20);
+	background-attachment: fixed;
+}
+
+.blog-header::after {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: rgba(255,255,255,.9);
+}
+
+.header-content {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	z-index: 2;
+}
+
+.header-title {
+	font-family: "Patua One", serif !important;
+	letter-spacing: 2px;
+	text-align: center;
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 5rem;
+}
+
+.header-subtitle {
+	font-weight: 400;
+	text-align: center;
+}
+
+@media only screen and (max-width: 767px) {
+	.header-title { font-size: 4rem }
+	.header-subtitle { font-size: 1.5rem }
+}
+
 /*	==================================================
 		Navigation
 		==================================================	*/
@@ -297,48 +339,6 @@ code {
 
 .meta.page-links a { margin: 0px !important }
 
-.blog-header {
-	position: relative;
-	height: 250px;
-	background-color: rgb(20,20,20);
-	background-attachment: fixed;
-}
-
-.blog-header::after {
-	content: '';
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	background: rgba(255,255,255,.9);
-}
-
-.header-content {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%,-50%);
-	z-index: 2;
-}
-
-.header-title {
-	font-family: "Patua One", serif !important;
-	letter-spacing: 2px;
-	text-align: center;
-	font-weight: bold;
-	text-transform: uppercase;
-	font-size: 5rem;
-}
-
-.header-subtitle {
-	font-weight: 400;
-	text-align: center;
-}
-
-@media only screen and (max-width: 767px) {
-	.header-title { font-size: 4rem }
-	.header-subtitle { font-size: 1.5rem }
-}
-
 .contact-form { margin: 2rem 0rem }
 
 .flash {
@@ -381,3 +381,8 @@ code {
 }
 
 .description { color: #546673 !important }
+
+.loader-holder {
+	position: relative;
+	margin: 4rem 0rem;
+}
