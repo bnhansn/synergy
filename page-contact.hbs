@@ -17,10 +17,10 @@
 	  {{/post}}
 
 	  {{! replace your@email.com with your actual email }}
-	  <form action="//formspree.io/bnhansn@gmail.com" method="post" class="ui form contact-form">
-	  	<input type="hidden" name="_subject" value="Synergy Theme Contact Form"> {{! you can customize the 'Contact Form' email subject line }}
+	  <form action="//formspree.io/your@email.com" method="post" class="ui form contact-form">
+	  	<input type="hidden" name="_subject" value="Contact Form"> {{! you can customize the 'Contact Form' email subject line }}
 	  	<input type="text" name="_gotcha" style="display:none"> {{! _gotcha input is for stopping spam }}
-	  	<input type="hidden" name="_next" value="//synergy-theme.ghost.io"> {{! replace yourdomain.com with your website's domain }}
+	  	<input type="hidden" name="_next" value="//yourdomain.com"> {{! replace yourdomain.com with your website's domain }}
 	  	
 	  	<div class="two fields">
 		  	<div class="field">
@@ -48,7 +48,7 @@
 	  		$(".submit-button").addClass("loading");
 
 	  		$.ajax({
-	  	    url: "//formspree.io/bnhansn@gmail.com", // replace your@email.com with your actual email
+	  	    url: "//formspree.io/your@email.com", // replace your@email.com with your actual email
 	  	    method: "post",
 	  			data: $(".contact-form").serialize(),
 	  	    dataType: "json",
